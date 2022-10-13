@@ -1,8 +1,8 @@
 package com.example.musiclibrary.entity
 
-data class BaseListParameter(
-    private val songName: String,
-    private val songPath: String,
-    private val artist: List<Artist>,
-    private val album: List<Album>
-)
+
+// 每个列表基本的参数，各个列表都会实现这个接口
+interface BaseListParameter {
+    val songName: String
+    val songId: Long
+}
