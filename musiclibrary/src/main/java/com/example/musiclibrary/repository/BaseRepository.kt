@@ -9,10 +9,11 @@ interface BaseRepository {
     /**
      * 获取接口
      */
-    fun getList() : List<BaseListParameter>
+    suspend fun getList() : List<Any>
 
     /**
      * 播放接口
      */
     fun play(position:Int)
+
 }

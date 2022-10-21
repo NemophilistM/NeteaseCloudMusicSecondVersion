@@ -3,7 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/drawable/ic_check.xml" value="0.19" />
+        <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/drawable/ic_hamburger_button.xml" value="0.19" />
+        <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/drawable/ic_launcher_background.xml" value="0.19" />
+        <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/drawable/ic_myself.xml" value="0.19" />
+        <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/drawable/ic_myself_check.xml" value="0.19" />
+        <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/drawable/ripple_onclick_hot_song.xml" value="0.19" />
+        <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/drawable/sytle_button.xml" value="0.152" />
         <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/layout/activity_main.xml" value="0.17916666666666667" />
+        <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/layout/nav_header.xml" value="0.36614583333333334" />
+        <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/menu/menu_base_activity_toolbar.xml" value="0.36614583333333334" />
+        <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/menu/menu_nav.xml" value="0.30925925925925923" />
+        <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/menu/nav_menu.xml" value="0.36614583333333334" />
       </map>
     </option>
   </component>

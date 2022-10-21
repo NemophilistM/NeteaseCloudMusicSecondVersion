@@ -1,18 +1,18 @@
 package com.example.musiclibrary.repository
 
-import com.example.musiclibrary.entity.BaseListParameter
+import com.example.musiclibrary.entity.SearchSong
 
-class PlayerListRepository : BaseRepository {
-    override fun getList() : List<BaseListParameter>{
+class PlayerListRepository {
+    suspend fun getList() : List<SearchSong>{
         TODO()
     }
 
-    override fun play(position: Int) {
+   fun play(position: Int) {
         TODO("Not yet implemented")
     }
 
     // 用于整体更新播放列表
-    fun upDataList( newList: List<BaseListParameter>){
+    fun upDataList( newList: List<SearchSong>){
         TODO("Not yet implemented")
     }
 
