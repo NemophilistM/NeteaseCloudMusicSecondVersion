@@ -33,4 +33,6 @@ interface SearchSongDao {
 
     @Delete
     fun delete(vararg song: SearchSong)
+
+    
 }

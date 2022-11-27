@@ -35,4 +35,14 @@ const val SUCCESS_CODE_JSON = 200
 // 数据库常量池
 const val  NAME_DB = "musicData.db"
 const val  SEARCH_TABLE_NAME_DB = "SearchSong"
+const val  PLAYER_TABLE_NAME_DB = "PlayerSong"
 const val  HOT_KEY_TABLE_NAME_DB = "HotKey"
+
+// 数据源常用类
+
+const val  SONG_NAME_ELEMENT_DB = "songName"
+const val  SONG_ID_ELEMENT_DB = "songId"
+const val  ARTIST_ELEMENT_DB = "artist"
+const val  ALBUM_ELEMENT_DB = "album"
+const val  ALL_ELEMENT_DB = "all"
+

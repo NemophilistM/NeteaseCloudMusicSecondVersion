@@ -45,7 +45,8 @@ object AnalysisNetJson {
                         song.getString(NAME_JSON),
                         song.getLong(ID_JSON),
                         artists,
-                        albumList
+                        albumList,
+                        id = 0
                     )
                     mutableSongList.add(songData)
 
@@ -65,14 +66,14 @@ object AnalysisNetJson {
             code = root.getInt(CODE_JSON)
             errorMsg = root.getString(MESSAGE_JSON)
             if (code == SUCCESS_CODE_JSON) {
-                val result = root.getJSONObject(RESULT_JSON)
-                val hots = result.getJSONArray(HOTS_DETAIL_DATA_JSON)
+                val hots = root.getJSONArray(HOTS_DETAIL_DATA_JSON)
                 for (i in 0 until hots.length()) {
                     val hot = hots.getJSONObject(i)
                     val hotKey = HotKey(
                         hot.getString(HOTS_DETAIL_DATA_SEARCH_WORD_JSON),
-                        hot.getLong(HOTS_DETAIL_DATA_SCORE_JSON),
+                        hot.getInt(HOTS_DETAIL_DATA_SCORE_JSON),
                         hot.getString(HOTS_DETAIL_DATA_CONTENT_JSON),
+                        id = 0
                         )
                     hotSong.add(hotKey)
                 }

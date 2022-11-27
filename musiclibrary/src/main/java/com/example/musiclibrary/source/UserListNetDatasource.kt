@@ -1,6 +1,5 @@
 package com.example.musiclibrary.source
 
-import com.example.musiclibrary.entity.BaseListParameter
 
 class UserListNetDatasource {
     fun getListFromNet() {

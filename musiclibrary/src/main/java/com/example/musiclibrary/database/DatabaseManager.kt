@@ -7,8 +7,10 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.musiclibrary.NAME_DB
 
 object DatabaseManager {
+    private lateinit var application: Application
     private val MIGRATIONS = arrayOf(Migration1)
-    private var application = Application()
+
+    //    private var application:Application = Application()
     val db: MusicDatabase by lazy {
         Room.databaseBuilder(application.applicationContext, MusicDatabase::class.java, NAME_DB)
             .addMigrations(*MIGRATIONS)
@@ -20,5 +22,9 @@ object DatabaseManager {
             // 数据库的升级语句
             // database.execSQL("")
         }
+    }
+
+    fun saveApplication(application: Application) {
+        DatabaseManager.application = application
     }
 }

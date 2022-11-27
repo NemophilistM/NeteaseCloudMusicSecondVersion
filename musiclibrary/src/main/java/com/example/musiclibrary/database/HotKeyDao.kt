@@ -19,7 +19,7 @@ interface HotKeyDao {
     fun getContent(): LiveData<List<String>>
 
     @Query("select score from HotKey order by id")
-    fun getScore(): LiveData<List<Long>>
+    fun getScore(): LiveData<List<Int>>
 
     @Query("select * from HotKey order by id")
     fun getAll(): LiveData<List<HotKey>>

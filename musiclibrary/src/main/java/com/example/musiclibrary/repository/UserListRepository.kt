@@ -1,6 +1,5 @@
 package com.example.musiclibrary.repository
 
-import com.example.musiclibrary.entity.BaseListParameter
 
 class UserListRepository {
 //    fun getList(): List<BaseListParameter> {

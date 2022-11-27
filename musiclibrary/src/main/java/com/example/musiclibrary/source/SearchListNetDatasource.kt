@@ -1,25 +1,30 @@
 package com.example.musiclibrary.source
 
-import com.example.musiclibrary.BASE_URL
-import com.example.musiclibrary.KEY_WORD_PASSWORD
-import com.example.musiclibrary.OFFSET_PASSWORD
-import com.example.musiclibrary.REQUEST_PAGE_MAX
+import android.provider.SyncStateContract
+import androidx.lifecycle.LiveData
+import androidx.paging.PagingSource
+import com.example.musiclibrary.*
+import com.example.musiclibrary.database.DatabaseManager
 import com.example.musiclibrary.entity.SearchSong
+import com.example.musiclibrary.entity.SearchSongJson
+import com.example.musiclibrary.network.RequestNetWork
 import com.example.musiclibrary.util.AnalysisNetJson
 import okhttp3.*
 
 class SearchListNetDatasource {
-    fun getListFromNet(passWord: String, curPage: Int): List<SearchSong> {
 
-        val okHttpClient = OkHttpClient()
-        val requestBody = FormBody.Builder()
-            .add(KEY_WORD_PASSWORD, passWord)
-            .add(OFFSET_PASSWORD, ((curPage - 1) * REQUEST_PAGE_MAX).toString())
-            .build()
-        val request = Request.Builder()
-            .url(BASE_URL)
-            .post(requestBody)
-            .build()
+    //使用的okhttp尝试进行的网络请求
+//    fun getListFromNet(passWord: String, curPage: Int): List<SearchSong> {
+
+//        val okHttpClient = OkHttpClient()
+//        val requestBody = FormBody.Builder()
+//            .add(KEY_WORD_PASSWORD, passWord)
+//            .add(OFFSET_PASSWORD, ((curPage - 1) * REQUEST_PAGE_MAX).toString())
+//            .build()
+//        val request = Request.Builder()
+//            .url(BASE_URL)
+//            .post(requestBody)
+//            .build()
 
 //        okHttpClient.newCall(request).enqueue(object : Callback {
 //            override fun onFailure(call: Call, e: IOException) {
@@ -38,12 +43,33 @@ class SearchListNetDatasource {
 //                }
 //            }
 //        })
-        val responseData = okHttpClient.newCall(request).execute().body()!!.string()
-        return AnalysisNetJson.analysisSearchList(responseData)
+//        val responseData = okHttpClient.newCall(request).execute().body()!!.string()
+//        val songs = AnalysisNetJson.analysisSearchList(responseData)
+//        DatabaseManager.db.searchSongDao.save(*songs.toTypedArray())
+//        return songs
+//
+//    }
 
+
+
+
+    suspend fun getListFromNet(word:String,limit:Int,offset:Int) = RequestNetWork.musicService.searchSong(word, limit, offset)
+
+    fun getListFromLocal(fileName: String): Any? {
+        var data: Any? = null
+        when (fileName) {
+            SONG_NAME_ELEMENT_DB -> data = DatabaseManager.db.searchSongDao.getSongName()
+            SONG_ID_ELEMENT_DB -> data = DatabaseManager.db.searchSongDao.getSongId()
+            ARTIST_ELEMENT_DB -> data = DatabaseManager.db.searchSongDao.getArtist()
+            ALBUM_ELEMENT_DB -> data = DatabaseManager.db.searchSongDao.getAlbum()
+            ALL_ELEMENT_DB -> data = DatabaseManager.db.searchSongDao.getAll()
+        }
+        return data
     }
 
-    fun getListFromLocal(fileName: String) {
-        TODO("Not yet implemented")
+    fun removeAllLocal() {
+        DatabaseManager.db.searchSongDao.delete()
     }
+
+
 }

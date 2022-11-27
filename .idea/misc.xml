@@ -9,9 +9,14 @@
         <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/drawable/ic_myself.xml" value="0.19" />
         <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/drawable/ic_myself_check.xml" value="0.19" />
         <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/drawable/ripple_onclick_hot_song.xml" value="0.19" />
+        <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/drawable/style_edit_text_search.xml" value="0.152" />
         <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/drawable/sytle_button.xml" value="0.152" />
+        <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/layout-v23/widget_search.xml" value="0.1421875" />
         <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/layout/activity_main.xml" value="0.17916666666666667" />
+        <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/layout/activity_search.xml" value="0.36614583333333334" />
+        <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/layout/fragment_search_result.xml" value="0.36614583333333334" />
         <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/layout/nav_header.xml" value="0.36614583333333334" />
+        <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/layout/widget_search.xml" value="0.27291666666666664" />
         <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/menu/menu_base_activity_toolbar.xml" value="0.36614583333333334" />
         <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/menu/menu_nav.xml" value="0.30925925925925923" />
         <entry key="..\:/Code/ascode/NeteaseCloudMusicSecondVersionApplication/app/src/main/res/menu/nav_menu.xml" value="0.36614583333333334" />

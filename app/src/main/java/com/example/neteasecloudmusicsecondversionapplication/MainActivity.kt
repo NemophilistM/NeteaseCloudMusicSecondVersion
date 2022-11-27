@@ -9,6 +9,8 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.musiclibrary.MyApplication
+import com.example.musiclibrary.database.DatabaseManager
 import com.example.neteasecloudmusicsecondversionapplication.databinding.ActivityMainBinding
 import com.example.neteasecloudmusicsecondversionapplication.view.SearchActivity
 
@@ -25,6 +27,11 @@ class MainActivity : AppCompatActivity() {
         val window = this.window
         window.statusBarColor = Color.GRAY
 
+        //将全局上下文传入仓库层，方便调用
+        MyApplication.setApplication(application)
+
+        //需要先进行一次数据库调用，将全局上下文传入其中，不然分模块是无法获取到主模块的上下文的
+        DatabaseManager.saveApplication(application)
         //标题栏初始化
         initToolBar()
 
