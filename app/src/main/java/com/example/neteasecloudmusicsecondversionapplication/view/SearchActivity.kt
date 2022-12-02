@@ -36,6 +36,7 @@ class SearchActivity : AppCompatActivity() {
 
         initToolBar()
 
+
         // 初始化vm
         val viewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
 

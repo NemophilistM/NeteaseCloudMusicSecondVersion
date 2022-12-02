@@ -13,10 +13,12 @@ import com.example.musiclibrary.util.ListTypeConverters
 @Entity(tableName = SEARCH_TABLE_NAME_DB)
 @TypeConverters(ListTypeConverters::class)
 data class SearchSong(
+    @PrimaryKey
+    val songId: Int,
+
     val songName: String,
-    val songId: Long,
+
     val artist: List<String>,
+
     val album: List<String>,
-    @PrimaryKey(autoGenerate = true)
-    var id: Int
 )

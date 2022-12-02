@@ -13,7 +13,7 @@ import com.example.musiclibrary.entity.Song
 import com.example.neteasecloudmusicsecondversionapplication.R
 import com.squareup.picasso.Picasso
 
-class SearchAdapter : PagingDataAdapter<Song,SearchAdapter.ViewHolder>(COMPARATOR) {
+class SearchAdapter(private val click:(Song)->Unit) : PagingDataAdapter<Song,SearchAdapter.ViewHolder>(COMPARATOR) {
     companion object {
         private val COMPARATOR = object : DiffUtil.ItemCallback<Song>() {
             override fun areItemsTheSame(oldItem: Song, newItem: Song): Boolean {
@@ -50,6 +50,9 @@ class SearchAdapter : PagingDataAdapter<Song,SearchAdapter.ViewHolder>(COMPARATO
             }
             holder.tvAuthor.text = artistName
             Picasso.with(holder.itemView.context).load(song.al.picUrl).placeholder(R.drawable.img_wait).error(R.drawable.img_error).into(holder.ivAlbumPic)
+            holder.itemView.setOnClickListener {
+                click(song)
+            }
         }
     }
 

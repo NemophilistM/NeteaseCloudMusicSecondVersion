@@ -42,11 +42,10 @@ object AnalysisNetJson {
 
                     val songData = SearchSong(
                         //歌曲id和名字的记录
+                        song.getInt(ID_JSON),
                         song.getString(NAME_JSON),
-                        song.getLong(ID_JSON),
                         artists,
                         albumList,
-                        id = 0
                     )
                     mutableSongList.add(songData)
 

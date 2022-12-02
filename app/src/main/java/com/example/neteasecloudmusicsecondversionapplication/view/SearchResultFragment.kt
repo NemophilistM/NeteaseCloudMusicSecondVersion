@@ -1,5 +1,6 @@
 package com.example.neteasecloudmusicsecondversionapplication.view
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,28 +14,36 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.neteasecloudmusicsecondversionapplication.POST_WORD
+import com.example.neteasecloudmusicsecondversionapplication.SONG_ID
 import com.example.neteasecloudmusicsecondversionapplication.adapter.SearchAdapter
 import com.example.neteasecloudmusicsecondversionapplication.adapter.SearchListFooterAdapter
 import com.example.neteasecloudmusicsecondversionapplication.databinding.FragmentSearchResultBinding
 import com.example.neteasecloudmusicsecondversionapplication.vm.SearchResultViewModel
+import com.example.neteasecloudmusicsecondversionapplication.vm.SearchViewModel
 import kotlinx.coroutines.launch
 
 class SearchResultFragment : Fragment() {
     private lateinit var binding: FragmentSearchResultBinding
-    private val adapter: SearchAdapter = SearchAdapter()
-    private  var postWords :String? = null
+    private lateinit var  viewModel:SearchResultViewModel
+    private val adapter: SearchAdapter = SearchAdapter(){
 
+        // 将当前曲目存入播放列表
+        viewModel.saveCurrentSong(it)
+
+        val intent = Intent(requireActivity(), PlayerActivity::class.java)
+        intent.putExtra(SONG_ID,it.id)
+        startActivity(intent)
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSearchResultBinding.inflate(inflater)
-
-        val viewModel = ViewModelProvider(this)[SearchResultViewModel::class.java]
         val args: Bundle = requireArguments()
         val word = args.getString(POST_WORD)
         val recyclerView: RecyclerView = binding.rvSongList
+        viewModel = ViewModelProvider(this)[SearchResultViewModel::class.java]
         //初始化适配器
         recyclerView.adapter = adapter.withLoadStateFooter(SearchListFooterAdapter{adapter.retry()})
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
@@ -61,6 +70,8 @@ class SearchResultFragment : Fragment() {
                 }
             }
         }
+
+        val list = adapter.snapshot()
         //这一部分是原本用于下拉刷新的
 //        binding.srSearch.setColorSchemeColors(
 //            Color.parseColor("#00FF80"),
@@ -70,6 +81,14 @@ class SearchResultFragment : Fragment() {
 //            adapter.retry()
 //        }
         return binding.root
+    }
+
+    /**
+     * 点击函数，传递id给逻辑层搜索
+     */
+    val click =  {
+
+
     }
 
 

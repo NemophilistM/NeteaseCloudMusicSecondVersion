@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "NeteaseCloudMusicSecondVersion Application"
 include ':app'
 include ':musiclibrary'
+include ':playerservice'

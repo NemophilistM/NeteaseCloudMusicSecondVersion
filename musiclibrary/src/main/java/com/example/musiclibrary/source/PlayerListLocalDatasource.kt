@@ -10,7 +10,11 @@ class PlayerListLocalDatasource {
         return DatabaseManager.db.playerSongDao.getAll()
     }
 
-    fun addElement(song: PlayerSong) {
+    suspend fun addElement(song: PlayerSong) {
         DatabaseManager.db.playerSongDao.save(song)
+    }
+
+    suspend fun getCount():Int?{
+        return  DatabaseManager.db.playerSongDao.getCount()
     }
 }

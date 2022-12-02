@@ -5,12 +5,19 @@ import com.example.musiclibrary.entity.PlayerSong
 import com.example.musiclibrary.entity.SearchSong
 import com.example.musiclibrary.source.PlayerListLocalDatasource
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.withContext
 
 object PlayerListRepository {
 
     private val datasource = PlayerListLocalDatasource()
 
+    suspend fun getCount() :Int? {
+        return withContext(Dispatchers.IO){
+            datasource.getCount()
+        }
+    }
     suspend fun getList(): LiveData<List<PlayerSong>> {
         return withContext(Dispatchers.IO) {
             datasource.getList()

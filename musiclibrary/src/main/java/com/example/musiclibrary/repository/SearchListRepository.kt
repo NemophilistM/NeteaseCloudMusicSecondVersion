@@ -51,8 +51,13 @@ object SearchListRepository {
         ).flow
     }
 
+    //播放播放列表第一首歌曲并进行顺序播放
     fun play() {
         TODO("Not yet implemented")
+    }
+    //播放单首歌曲并将其添加至播放列表
+    fun play(id:Int){
+
     }
 
     suspend fun addElement(song: PlayerSong) {
